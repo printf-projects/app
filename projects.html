@@ -6,107 +6,107 @@
 <title>printf(projects) - Projects</title>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-  *{margin:0;padding:0;box-sizing:border-box;font-family:'JetBrains Mono',monospace;}
-  body{background:#1e1e2e;color:#cdd6f4;scroll-behavior:smooth;}
+  *{margin:0;padding:0;box-sizing:border-box;font-family:'JetBrains Mono', monospace;}
+  body{background:#121212;color:#e0e0e0;scroll-behavior:smooth;}
   a{text-decoration:none;color:inherit;}
+
+  /* Rainbow glowing offer banner */
+  .flash-banner {
+    background: linear-gradient(270deg, #ff3c3c, #ffbd3c, #3cff3c, #3cfdff, #3c3cff, #bd3cff, #ff3cbd);
+    background-size: 1400% 1400%;
+    color: #121212;
+    font-weight: 600;
+    text-align: center;
+    padding: 12px 0;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    cursor: pointer;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 0 15px #fff;
+    animation: rainbowMove 15s linear infinite, glowPulse 3s ease-in-out infinite alternate;
+  }
+  @keyframes rainbowMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  @keyframes glowPulse {
+    0% { box-shadow: 0 0 10px #fff, 0 0 20px #fff; }
+    50% { box-shadow: 0 0 25px #fff, 0 0 50px #fff; }
+    100% { box-shadow: 0 0 10px #fff, 0 0 20px #fff; }
+  }
 
   /* Header */
   header{
-    background:rgba(20,20,35,0.95);
-    backdrop-filter:blur(10px);
+    background:rgba(18,18,18,0.95);
     padding:15px 5%;
     display:flex;justify-content:space-between;align-items:center;
-    position:sticky;top:0;z-index:999;
-    border-bottom:1px solid rgba(255,255,255,0.1);
+    position:sticky;top:48px;z-index:999;
+    box-shadow:0 2px 8px rgba(0,0,0,0.5);
+    border-bottom:1px solid #333;
     border-radius:0 0 8px 8px;
   }
-  header h1{
-    font-size:1.6rem;
-    color:#ff61a6;
-    text-shadow:0 0 6px #ff61a6;
-  }
-  .menu-btn{
-    display:none;
-    flex-direction:column;
-    cursor:pointer;
-    gap:4px;
-  }
-  .menu-btn div{
-    width:25px;height:3px;
-    background:#ff61a6;
-    border-radius:2px;
-  }
-  nav{
-    display:flex;gap:15px;
-  }
-  nav a{
-    color:#fff;font-weight:500;padding:6px 12px;border-radius:8px;position:relative;transition:0.3s;
-  }
-  nav a::before{
-    content:'';
-    position:absolute;top:-2px;left:-2px;right:-2px;bottom:-2px;
-    border-radius:10px;padding:2px;
-    background:linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet, red);
-    z-index:-1;filter:blur(4px);
-    opacity:1;
-    animation:rainbowMove 4s linear infinite;
-  }
-  @keyframes rainbowMove{
-    0%{background-position:0% 50%;}
-    50%{background-position:100% 50%;}
-    100%{background-position:0% 50%;}
-  }
-  nav a:hover{color:#fff;text-shadow:0 0 6px #fff;}
+  header h1{font-size:1.6rem;color:#a6e3a1;}
+  nav{display:flex;gap:20px;}
+  nav a{color:#cdd6f4;font-weight:500;padding:6px 12px;border-radius:6px;transition:0.3s;}
+  nav a:hover{background:rgba(166,227,161,0.2);color:#a6e3a1;}
 
-  /* Projects Section */
-  .projects{padding:80px 5%;text-align:center;}
-  .projects h2{color:#ff61a6;font-size:2rem;margin-bottom:40px;}
-  .project-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:15px;}
-  .project-card{
-    background:#2a223a;border-radius:15px;padding:20px;
-    border:1px solid rgba(15,200,255,0.15);position:relative;overflow:hidden;cursor:pointer;
-    transition:transform 0.4s ease,box-shadow 0.4s ease,border-color 0.4s ease;
-  }
-  .project-card::before{
-    content:"";position:absolute;width:150%;height:150%;top:-25%;left:-25%;
-    background:radial-gradient(circle,rgba(0,255,255,0.1) 0%,transparent 70%);
-    transform:rotate(25deg);opacity:0;transition:opacity 0.5s;
-  }
-  .project-card:hover::before{opacity:1;}
-  .project-card:hover{transform:translateY(-8px) scale(1.02);border-color:#ff61a6;box-shadow:0 0 15px rgba(255,97,166,0.3);}
-  .project-card h3{color:#0cf;font-size:1rem;margin-bottom:8px;text-shadow:0 0 4px #0cf;}
-  .project-card p{color:#aaa;font-size:0.85rem;margin-bottom:10px;text-shadow:0 0 3px #0cf;}
-  .project-card a{display:inline-block;padding:6px 16px;border-radius:20px;border:1px solid #0cf;color:#0cf;transition:0.3s;font-weight:500;font-size:0.85rem;}
-  .project-card a:hover{background-color:#0cf;color:#000;border-color:#ff61a6;box-shadow:0 0 12px rgba(0,255,255,0.6);}
-
-  /* Contact Section */
-  .contact{text-align:center;padding:60px 5%;background:linear-gradient(180deg,#2a1a3d,#1e2e2e);}
-  .contact h2{color:#ff61a6;margin-bottom:20px;}
-  .contact a{display:inline-block;margin:8px 10px;padding:8px 18px;border-radius:25px;border:2px solid #0cf;color:#0cf;font-weight:500;transition:0.3s;font-size:0.9rem;}
-  .contact a:hover{background-color:#0cf;color:#000;border-color:#ff61a6;box-shadow:0 0 15px #0cf,0 0 25px #ff61a6;}
-
-  /* Footer */
-  footer{background:#1a1a2a;text-align:center;padding:15px 0;color:#777;font-size:0.8rem;border-top:1px solid rgba(15,200,255,0.2);}
-
-  /* Mobile */
+  .menu-btn{display:none;flex-direction:column;gap:4px;cursor:pointer;}
+  .menu-btn div{width:25px;height:3px;background:#a6e3a1;border-radius:2px;}
   @media(max-width:768px){
     .menu-btn{display:flex;}
     nav{
       position:absolute;top:65px;right:5%;flex-direction:column;
-      background:rgba(30,30,50,0.95);border-radius:8px;padding:15px;display:none;gap:10px;
+      background:#1e1e1e;padding:15px;border-radius:8px;display:none;gap:10px;
     }
     nav.active{display:flex;}
   }
+
+  /* Projects Section */
+  .projects{padding:80px 5%;}
+  .projects h2{color:#a6e3a1;font-size:2rem;margin-bottom:30px;text-align:center;}
+  .category-title{color:#cba6f7;margin:30px 0 15px;font-size:1.5rem;}
+  .project-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:15px;}
+  .project-card{
+    background:#1e1e1e;border-radius:15px;padding:20px;transition:transform 0.4s ease,box-shadow 0.4s ease;
+    position:relative;overflow:hidden;cursor:pointer;
+  }
+  .project-card:hover{transform:translateY(-6px);box-shadow:0 0 20px #a6e3a1,0 0 25px #cba6f7;}
+  .project-card h3{color:#a6e3a1;font-size:1rem;margin-bottom:8px;}
+  .project-card p{color:#ccc;font-size:0.85rem;margin-bottom:10px;}
+  .project-card a{
+    display:inline-block;padding:6px 16px;border-radius:20px;border:1px solid #a6e3a1;color:#a6e3a1;transition:0.3s;font-weight:500;font-size:0.85rem;
+  }
+  .project-card a:hover{background:#a6e3a1;color:#121212;box-shadow:0 0 12px #cba6f7;}
+
+  /* Contact Section */
+  .contact{text-align:center;padding:60px 5%;background:#1e1e1e;border-radius:12px;margin:60px 5%;}
+  .contact h2{color:#a6e3a1;margin-bottom:20px;}
+  .contact a{
+    display:inline-block;margin:8px 10px;padding:10px 20px;border-radius:25px;
+    border:2px solid #a6e3a1;color:#a6e3a1;font-weight:500;transition:0.3s;
+  }
+  .contact a:hover{background:#a6e3a1;color:#121212;}
+
+  footer{background:#121212;text-align:center;padding:15px 0;color:#888;font-size:0.8rem;border-top:1px solid #333;}
+
   @media(max-width:600px){
     header h1{font-size:1.4rem;}
     .projects h2{font-size:1.6rem;}
+    .category-title{font-size:1.3rem;}
     .project-card{padding:15px;}
+    .project-card a{padding:5px 12px;font-size:0.8rem;}
     .contact h2{font-size:1.5rem;}
-    .contact a{padding:6px 16px;font-size:0.85rem;}
+    .contact a{padding:8px 16px;font-size:0.85rem;}
   }
 </style>
 </head>
 <body>
+
+<div class="flash-banner" onclick="offerClick()">
+  ⚡ Projects start at ₹1000 | Invite your friend & get 50% ⚡
+</div>
 
 <header>
   <h1>printf(projects)</h1>
@@ -122,23 +122,12 @@
 
 <section class="projects" id="projects">
   <h2>Available Projects</h2>
-  <div class="project-grid">
-    <div class="project-card"><h3>AI Attendance Tracker</h3><p>Face recognition-based attendance system.</p><a href="#contact">Contact to Buy</a></div>
-    <div class="project-card"><h3>Smart Waste Segregator</h3><p>IoT-enabled waste management system.</p><a href="#contact">Contact to Buy</a></div>
-    <div class="project-card"><h3>Online Voting System</h3><p>Secure blockchain-based voting platform.</p><a href="#contact">Contact to Buy</a></div>
-    <div class="project-card"><h3>Carpool Connect</h3><p>Carpool app to share rides with peers.</p><a href="#contact">Contact to Buy</a></div>
-    <div class="project-card"><h3>E-Health Monitor</h3><p>IoT wearable health tracking project.</p><a href="#contact">Contact to Buy</a></div>
-    <div class="project-card"><h3>Student Result Analyzer</h3><p>AI-powered academic performance predictor.</p><a href="#contact">Contact to Buy</a></div>
-    <div class="project-card"><h3>Online Exam Portal</h3><p>Web app with proctoring and instant results.</p><a href="#contact">Contact to Buy</a></div>
-    <div class="project-card"><h3>Smart Irrigation System</h3><p>Automated farming with soil moisture sensors.</p><a href="#contact">Contact to Buy</a></div>
-    <div class="project-card"><h3>Bus Tracking System</h3><p>GPS-enabled live bus tracking app.</p><a href="#contact">Contact to Buy</a></div>
-    <div class="project-card"><h3>Job Recommendation App</h3><p>AI-based personalized job search.</p><a href="#contact">Contact to Buy</a></div>
-  </div>
+  <div id="project-container"></div>
 </section>
 
 <section class="contact" id="contact">
   <h2>Contact Us</h2>
-  <a href="https://wa.me/917904733544" target="_blank">WhatsApp</a>
+  <a href="https://wa.me/917904733544?text=Hello%20I%20want%20to%20buy%20a%20project" target="_blank">WhatsApp</a>
   <a href="mailto:printfprojects@example.com">Email</a>
 </section>
 
@@ -147,8 +136,81 @@
 </footer>
 
 <script>
-function toggleMenu(){
-  document.getElementById('menu').classList.toggle('active');
+// Project data grouped by categories
+const projectsData = [
+  {category:"🧩 Beginner-Level Website Projects", list:[
+    "Personal Portfolio Website","Online Resume Builder","Product Landing Page","Restaurant Website with Menu & Booking",
+    "Photography Gallery Website","Travel Agency Website","Online Recipe Book","Simple Blog Website","Gym/Fitness Website",
+    "Fashion Store (Static E-commerce)","Real Estate Listing Website","Event Invitation Website","Food Recipe Finder",
+    "Weather Forecast Website","Pet Adoption Website","Art & Craft Showcase Website","Coffee Shop Website",
+    "NGO / Charity Organization Website","Online CV/Portfolio Builder","Resume Hosting Website with Templates"
+  ]},
+  {category:"💼 Intermediate-Level (Dynamic + Database + Auth)", list:[
+    "E-commerce Website with Cart & Checkout","Blogging Platform with User Login","Expense Tracker Web App","Job Portal Website",
+    "Online Learning Platform","Real-time Chat Website","Online Quiz Platform","College Management System","Library Management Website",
+    "Online Voting System","Hotel Booking Website","Doctor Appointment Booking Website","Bus/Train Ticket Reservation Website",
+    "Vehicle Service Booking Website","Online Blood Donation Platform","Real-time Polling App","Discussion Forum Website",
+    "Digital Notes Taking Website","College Alumni Website","Complaint Management System"
+  ]},
+  {category:"⚙ Advanced Full-Stack Web Projects", list:[
+    "Social Media Website","Code Sharing Platform","Music Streaming Website","Video Streaming Website","Movie Review and Rating Website",
+    "Online Code Editor","Learning Management System","Project Management Tool","Student Portal Website","Internship Management Portal"
+  ]},
+  {category:"🌐 Real-World Business Websites", list:[
+    "Online Shopping Website","Travel Booking Website","Real Estate Marketplace","Freelancer Hiring Platform","Car Rental Website",
+    "Hospital Management Website","Insurance Quote Website","Event Management Website","Donation Management System","Recruitment Website"
+  ]},
+  {category:"📊 Dashboard + Analytics Projects", list:[
+    "Admin Dashboard","Sales Management Dashboard","IoT Device Monitoring Dashboard","Cloud Cost Tracker Website","Employee Attendance Dashboard",
+    "Student Performance Dashboard","Finance/Expense Analytics Website","Inventory Management System","E-learning Progress Dashboard","Social Media Analytics Website"
+  ]},
+  {category:"💻 Creative & Trending Final-Year Web Ideas", list:[
+    "Virtual Internship Portal","College Event Management Website","Smart City Information Portal","Online Resume + Portfolio + Blog combo",
+    "University Course Review Website","Food Delivery Website","Online Marketplace","Hackathon/Competition Platform","Doctor–Patient Portal",
+    "Travel Experience Sharing Website"
+  ]},
+  {category:"🧠 Tech + Innovation Based Websites", list:[
+    "Cloud Storage Website","File Sharing Platform","Online Whiteboard Collaboration Tool","Resume Ranking Website","Real-time Stock Tracker Website",
+    "Cryptocurrency Portfolio Tracker","Waste Management Reporting Website","Virtual Classroom with Video Calls","Interview Preparation Portal",
+    "Realtime Location Tracking Website"
+  ]},
+  {category:"🚀 Next-Gen Project Ideas", list:[
+    "AI-free Smart Resume Analyzer","Online Portfolio CMS","Real-time Feedback System","Quiz + Leaderboard Platform",
+    "Online Certification Platform","Community Forum + Blog Platform","Career Guidance Portal","College Admission Portal",
+    "Skill Sharing / Learning Community","Crowdfunding Website"
+  ]}
+];
+
+// Generate projects dynamically
+const container = document.getElementById('project-container');
+projectsData.forEach(group => {
+  const catTitle = document.createElement('h3');
+  catTitle.className = "category-title";
+  catTitle.textContent = group.category;
+  container.appendChild(catTitle);
+
+  const grid = document.createElement('div');
+  grid.className = "project-grid";
+
+  group.list.forEach(project => {
+    const card = document.createElement('div');
+    card.className = "project-card";
+    card.innerHTML = `<h3>${project}</h3><p>Click below to buy this project</p>
+      <a href="#" onclick="buyProject('${project}')">Contact to Buy</a>`;
+    grid.appendChild(card);
+  });
+
+  container.appendChild(grid);
+});
+
+// Functions
+function toggleMenu(){document.getElementById('menu').classList.toggle('active');}
+function offerClick(){
+  window.open("https://wa.me/917904733544?text=Hello%20I%20want%20to%20buy%20a%20project", "_blank");
+}
+function buyProject(title){
+  let url = "https://wa.me/917904733544?text=" + encodeURIComponent("Hello, I want to buy the project: " + title);
+  window.open(url, "_blank");
 }
 </script>
 
