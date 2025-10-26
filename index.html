@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>printf(projects) - Home</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+  body{background: radial-gradient(circle at top left,#090909,#050505);color:#eaeaea;scroll-behavior:smooth;}
+
+  a{text-decoration:none;color:inherit;}
+
+  /* Flash Offer - Fixed Top */
+  .flash-banner{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    background:linear-gradient(90deg,#7a00ff,#00ffff,#7a00ff);
+    background-size:400% 400%;
+    color:#000;
+    font-weight:700;
+    padding:12px 0;
+    text-align:center;
+    z-index:9999;
+    animation:glowPulse 3s infinite,moveGradient 5s ease infinite;
+    box-shadow:0 0 20px rgba(0,255,255,0.7);
+  }
+  @keyframes glowPulse{0%,100%{box-shadow:0 0 15px rgba(0,255,255,0.6);}50%{box-shadow:0 0 35px rgba(122,0,255,0.7);}}
+  @keyframes moveGradient{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+
+  /* Header - Sticky below offer */
+  header{
+    background: rgba(10,10,10,0.9);
+    backdrop-filter: blur(8px);
+    padding:15px 5%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid rgba(0,255,255,0.2);
+    position:sticky;
+    top:40px; /* leave space for banner */
+    z-index:999;
+  }
+  header h1{font-size:1.6rem;color:#00ffff;letter-spacing:1px;text-shadow:0 0 8px #00ffff;}
+  nav a{color:#bbb;margin-left:15px;font-weight:500;transition:0.3s;text-shadow:0 0 3px #00ffff;}
+  nav a:hover{color:#7a00ff;text-shadow:0 0 12px #7a00ff;}
+
+  /* Hero Section */
+  .hero{
+    text-align:center;
+    padding:160px 5% 100px; /* add top padding to avoid overlay with banner */
+    background:linear-gradient(180deg,#0a0a0a,#140022);
+  }
+  .hero h2{
+    font-size:2.2rem;color:#00ffff;text-shadow:0 0 4px #00ffff,0 0 12px #7a00ff;
+    margin-bottom:15px;
+  }
+  .hero p{
+    font-size:1rem;color:#bbb;margin-bottom:25px;text-shadow:0 0 4px #00ffff;
+  }
+  .hero a{
+    display:inline-block;margin-top:20px;padding:12px 25px;border-radius:25px;border:2px solid #00ffff;color:#00ffff;font-weight:600;text-shadow:0 0 4px #00ffff;transition:0.3s;
+  }
+  .hero a:hover{
+    background-color:#00ffff;color:#000;border-color:#7a00ff;
+    box-shadow:0 0 15px #00ffff,0 0 30px #7a00ff;
+  }
+
+  /* Features Section */
+  .features{
+    padding:80px 5%;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;text-align:center;
+  }
+  .feature-card{
+    background:linear-gradient(145deg,#0c0c0c,#111);
+    border:1px solid rgba(0,255,255,0.2);
+    border-radius:15px;padding:30px 15px;
+    box-shadow:0 0 12px rgba(0,255,255,0.2);transition:transform 0.4s ease,box-shadow 0.4s ease;
+  }
+  .feature-card:hover{
+    transform:translateY(-8px) scale(1.02);
+    box-shadow:0 0 28px rgba(0,255,255,0.4),0 0 40px rgba(122,0,255,0.4);
+  }
+  .feature-card h3{color:#00ffff;font-size:1.1rem;margin-bottom:10px;text-shadow:0 0 4px #00ffff;}
+  .feature-card p{color:#aaa;font-size:0.9rem;text-shadow:0 0 3px #00ffff;}
+
+  /* Contact Section */
+  .contact{text-align:center;padding:60px 5%;background:linear-gradient(180deg,#100019,#001010);}
+  .contact h2{color:#7a00ff;margin-bottom:20px;font-size:1.7rem;text-shadow:0 0 8px #7a00ff;}
+  .contact a{display:inline-block;margin:8px 10px;padding:10px 20px;border-radius:25px;border:2px solid #00ffff;color:#00ffff;text-decoration:none;font-weight:500;transition:0.3s;text-shadow:0 0 4px #00ffff;}
+  .contact a:hover{
+    background-color:#00ffff;color:#000;border-color:#7a00ff;
+    box-shadow:0 0 15px #00ffff,0 0 25px #7a00ff;
+  }
+
+  footer{background-color:#050505;text-align:center;padding:15px 0;color:#777;font-size:0.8rem;border-top:1px solid rgba(0,255,255,0.2);}
+
+  @media(max-width:600px){
+    header h1{font-size:1.4rem;}
+    nav a{margin-left:10px;font-size:0.9rem;}
+    .hero h2{font-size:1.8rem;}
+    .hero p{font-size:0.95rem;}
+    .hero a{padding:10px 20px;font-size:0.95rem;}
+    .features{grid-template-columns:1fr;gap:15px;padding:60px 5%;}
+    .feature-card{padding:25px 15px;}
+    .contact h2{font-size:1.5rem;}
+    .contact a{padding:8px 18px;font-size:0.9rem;}
+  }
+</style>
+</head>
+<body>
+
+<div class="flash-banner">
+  ⚡Starts from ₹1000 | Invite 1 friend & get 50% OFF!
+</div>
+
+<header>
+  <h1>printf(projects)</h1>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <h2>Launch Your Final Year Project Faster 🚀</h2>
+  <p>Professional ready-made academic projects in Java, Python, PHP, and more — complete with documentation & setup support.</p>
+  <a href="projects.html">💼 View Projects</a>
+</section>
+
+<section class="features">
+  <div class="feature-card">
+    <h3>Fast Delivery</h3>
+    <p>Get fully functional projects ready to submit in record time.</p>
+  </div>
+  <div class="feature-card">
+    <h3>High Quality</h3>
+    <p>All projects include clean code, documentation, and setup instructions.</p>
+  </div>
+  <div class="feature-card">
+    <h3>Affordable Pricing</h3>
+    <p>Projects start from just ₹1000 — invite friends to get discounts!</p>
+  </div>
+  <div class="feature-card">
+    <h3>Multiple Domains</h3>
+    <p>Choose from Web, Mobile, AI, IoT, and more technology domains.</p>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <h2>Contact Us</h2>
+  <a href="https://wa.me/917904733544" target="_blank">WhatsApp</a>
+  <a href="mailto:printfprojects@example.com">Email</a>
+</section>
+
+<footer>
+  © 2025 printf(projects) | Academic Project Solutions
+</footer>
+
+</body>
+</html>
